@@ -12,6 +12,17 @@ struct TasklyApp: App {
   var body: some Scene {
     WindowGroup {
       ToDoListView()
+        .onAppear { instantiateColorOnAlerts() }
     }
+  }
+}
+
+// MARK: - UIView Appearance
+extension TasklyApp {
+
+  /// Determine the ``SwiftUI`` color on the alerts' buttons.
+  /// - Warning: Fix a ``SwiftUI`` bug on alert. Check future release if issue is fixed.
+  private func instantiateColorOnAlerts() {
+    UIView.appearance().tintColor = UIColor(named: "AccentColor")
   }
 }

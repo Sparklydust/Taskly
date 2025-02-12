@@ -45,6 +45,11 @@
 			path = TasklyTests;
 			sourceTree = "<group>";
 		};
+		2A6A5CF82D5CEF4700D5AA32 /* TasklyTestPlans */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TasklyTestPlans;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,9 +73,10 @@
 		2A6A57472D5CB45900D5AA32 = {
 			isa = PBXGroup;
 			children = (
-				2A6A57522D5CB45900D5AA32 /* Taskly */,
-				2A6A57632D5CB45A00D5AA32 /* TasklyTests */,
 				2A6A57512D5CB45900D5AA32 /* Products */,
+				2A6A57522D5CB45900D5AA32 /* Taskly */,
+				2A6A5CF82D5CEF4700D5AA32 /* TasklyTestPlans */,
+				2A6A57632D5CB45A00D5AA32 /* TasklyTests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +106,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				2A6A57522D5CB45900D5AA32 /* Taskly */,
+				2A6A5CF82D5CEF4700D5AA32 /* TasklyTestPlans */,
 			);
 			name = Taskly;
 			packageProductDependencies = (

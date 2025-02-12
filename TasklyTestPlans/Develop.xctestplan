@@ -1,0 +1,27 @@
+{
+  "configurations" : [
+    {
+      "id" : "4890F4B9-F689-402D-92CE-45522B53FF34",
+      "name" : "Main",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "language" : "en",
+    "preferredScreenCaptureFormat" : "screenshot",
+    "region" : "FR",
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Taskly.xcodeproj",
+        "identifier" : "2A6A575F2D5CB45A00D5AA32",
+        "name" : "TasklyTests"
+      }
+    }
+  ],
+  "version" : 1
+}

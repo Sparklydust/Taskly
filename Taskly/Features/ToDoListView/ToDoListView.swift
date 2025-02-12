@@ -13,6 +13,11 @@ struct ToDoListView: View {
         ToDoCard(task: "Buy some milk")
       }
       .navigationTitle(L10n.toDoListNavBarTitle)
+      .toolbar {
+        ToolbarItem(placement: .primaryAction) {
+          AddTaskButton(action: { /*Intentionally empty*/ })
+        }
+      }
     }
   }
 }

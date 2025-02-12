@@ -11,7 +11,7 @@ struct TasklyApp: App {
 
   var body: some Scene {
     WindowGroup {
-      ContentView()
+      ToDoListView()
     }
   }
 }

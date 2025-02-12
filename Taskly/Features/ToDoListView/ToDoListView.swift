@@ -18,7 +18,7 @@ struct ToDoListView: View {
           Text("Hello, world!")
         }
       }
-      .navigationTitle("To Do")
+      .navigationTitle(L10n.toDoListNavBarTitle)
     }
   }
 }

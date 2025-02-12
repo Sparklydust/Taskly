@@ -10,13 +10,7 @@ struct ToDoListView: View {
   var body: some View {
     NavigationStack {
       List {
-        VStack(alignment: .leading, spacing: 8) {
-          Image(systemName: "globe")
-            .imageScale(.large)
-            .foregroundStyle(.accent)
-
-          Text("Hello, world!")
-        }
+        ToDoCard(task: "Buy some milk")
       }
       .navigationTitle(L10n.toDoListNavBarTitle)
     }

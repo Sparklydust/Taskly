@@ -18,6 +18,16 @@ enum L10n {
     comment: "The title populated on the button used to cancel a new task."
   )
 
+  static let taskUnavailableDescription = String(
+    localized: "taskUnavailableDescription",
+    comment: "Description populated when there is no task available within the to-do list."
+  )
+
+  static let taskUnavailableTitle = String(
+    localized: "taskUnavailableTitle",
+    comment: "Title populated when there is no task available within the to-do list."
+  )
+
   static let toDoListAlertAddTaskTitle = String(
     localized: "toDoListAlertAddTaskTitle",
     comment: "The title populated on the alert asking for the user to enter their new task."

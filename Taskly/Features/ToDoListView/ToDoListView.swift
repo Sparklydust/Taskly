@@ -11,8 +11,14 @@ struct ToDoListView: View {
 
   var body: some View {
     NavigationStack {
-      List(vm.allTasks, id: \.id) { task in
-        ToDoCard(task: task)
+      ZStack {
+        if vm.allTasks.isEmpty {
+          TaskUnavailableView()
+        } else {
+          List(vm.allTasks, id: \.id) { task in
+            ToDoCard(task: task)
+          }
+        }
       }
       .navigationTitle(L10n.toDoListNavBarTitle)
       .toolbar {

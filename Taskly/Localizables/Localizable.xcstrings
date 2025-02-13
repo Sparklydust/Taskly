@@ -1,8 +1,38 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Hello, world!" : {
-
+    "buttonAddTask" : {
+      "comment" : "The title populated on the button used to add a new task.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add"
+          }
+        }
+      }
+    },
+    "buttonCancelTask" : {
+      "comment" : "The title populated on the button used to cancel a new task.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        }
+      }
+    },
+    "toDoListAlertAddTaskTitle" : {
+      "comment" : "The title populated on the alert asking for the user to enter their new task.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New Task"
+          }
+        }
+      }
     },
     "toDoListNavBarTitle" : {
       "comment" : "The navigation bar title for the to-do list view.",

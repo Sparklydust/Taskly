@@ -11,6 +11,8 @@ import Foundation
   var showAddTaskAlert = false
   /// Holds the task input text.
   var task = String()
+  /// Stores all tasks, including pending and completed ones.
+  var allTasks: [TaskModel] = []
 }
 
 // MARK: - Add Task

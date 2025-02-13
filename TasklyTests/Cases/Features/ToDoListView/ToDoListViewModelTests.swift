@@ -32,6 +32,14 @@ import Testing
     #expect(result == expected, "`task` should be equal to an empty String when initialized.")
   }
 
+  @Test func initialization_allTasks_isEqualToEmptyArrayOfTaskModel() {
+    let expected: [TaskModel] = []
+
+    let result = sut.allTasks
+
+    #expect(result == expected, "`allTasks` should be equal to \(expected) when initialized.")
+  }
+
   // MARK: - Add Task
   @Test func addTask_populateAddTaskAlertIsCalled_showAddTaskAlertIsEqualToTrue() {
     sut.populateAddTaskAlert()

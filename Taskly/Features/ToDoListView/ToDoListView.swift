@@ -11,8 +11,8 @@ struct ToDoListView: View {
 
   var body: some View {
     NavigationStack {
-      List {
-        ToDoCard(task: "Buy some milk")
+      List(vm.allTasks, id: \.id) { task in
+        ToDoCard(task: task)
       }
       .navigationTitle(L10n.toDoListNavBarTitle)
       .toolbar {

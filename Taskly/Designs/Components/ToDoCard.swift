@@ -8,11 +8,11 @@ import SwiftUI
 struct ToDoCard: View {
 
   /// The task to populate on the card.
-  let task: String
+  let task: TaskModel
 
   var body: some View {
     VStack(alignment: .leading, spacing: 8) {
-      Text(task)
+      Text(task.description)
         .font(.body)
         .foregroundStyle(.primary)
     }
@@ -22,5 +22,5 @@ struct ToDoCard: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-  ToDoCard(task: "Get a new book at the bookstore.")
+  ToDoCard(task: .fake())
 }

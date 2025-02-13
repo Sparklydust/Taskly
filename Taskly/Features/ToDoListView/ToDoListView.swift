@@ -32,8 +32,8 @@ struct ToDoListView: View {
       ) {
         TaskTextFields(
           task: $vm.task,
-          onAdd: { /*Intentionally empty*/ },
-          onCancel: { /*Intentionally empty*/ }
+          onAdd: { withAnimation { vm.addTask() }},
+          onCancel: { vm.cancelAddingTask() }
         )
       }
     }

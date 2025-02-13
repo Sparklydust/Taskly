@@ -56,4 +56,47 @@ import Testing
 
     #expect(result == true, "`task` should be empty when `populateAddTaskAlert()` is called.")
   }
+
+  @Test func addTask_userCancelAddingTask_taskValueIsEqualToEmptyString() {
+    sut.task = "Fake value"
+    
+    sut.cancelAddingTask()
+    let result = sut.task.isEmpty
+    
+    #expect(result == true, "`task` should be empty when `cancelAddingTask()` is called.")
+  }
+
+  @Test func addTask_userAddTask_taskValueIsEqualToEmpty() {
+    sut.task = "Fake value"
+    
+    sut.addTask()
+    let result = sut.task.isEmpty
+
+    #expect(result == true, "`task` value must be empty after adding a task.")
+  }
+
+  @Test func addTask_userAddTask_allTasksContainsNewlyCreateTask() {
+    let expected = "Fake Task"
+    sut.allTasks.removeAll()
+    sut.task = expected
+
+    sut.addTask()
+    let result = sut.allTasks.contains(where: { $0.description == expected })
+
+    #expect(result == true, "`allTasks` must contain the newly created task.")
+  }
+
+  @Test func addTask_userAddTwoTasks_allTasksContainsBothTasks() {
+    let taskFake = "Fake Task"
+    sut.allTasks.removeAll()
+    sut.task = taskFake
+    let expected = 2
+
+    sut.addTask()
+    sut.task = taskFake
+    sut.addTask()
+    let result = sut.allTasks.count
+
+    #expect(result == expected, "`allTasks` must contain \(expected) tasks.")
+  }
 }

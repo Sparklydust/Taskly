@@ -23,4 +23,16 @@ extension ToDoListViewModel {
     showAddTaskAlert = true
     task = String()
   }
+
+  /// Actions to perform when user cancel adding a task.
+  func cancelAddingTask() {
+    task = String()
+  }
+
+  /// Actions to perform when user add a new task.
+  func addTask() {
+    let newTask = TaskModel(description: task)
+    allTasks.append(newTask)
+    task = String()
+  }
 }

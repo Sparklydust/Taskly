@@ -9,8 +9,8 @@ import Foundation
 
   /// Indicates whether the add task alert should be shown.
   var showAddTaskAlert = false
-  /// Holds the task input text.
-  var task = String()
+  /// Holds the newly created task input text.
+  var newTaskTitle = String()
   /// Stores all tasks, including pending and completed ones.
   var allTasks: [TaskModel] = []
 }
@@ -21,20 +21,20 @@ extension ToDoListViewModel {
   /// Triggers the add task alert for user to create a new task.
   func populateAddTaskAlert() {
     showAddTaskAlert = true
-    task = String()
+    newTaskTitle = String()
   }
 
   /// Actions to perform when user cancel adding a task.
   func cancelAddingTask() {
-    task = String()
+    newTaskTitle = String()
   }
 
   /// Actions to perform when user add a new task.
   func addTask() {
-    let newTask = TaskModel(description: task)
+    let newTask = TaskModel(title: newTaskTitle)
     allTasks.append(newTask)
     sortTasks()
-    task = String()
+    newTaskTitle = String()
   }
 }
 

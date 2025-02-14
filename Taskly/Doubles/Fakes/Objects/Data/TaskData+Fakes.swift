@@ -12,8 +12,12 @@ extension TaskData {
 
   /// Create fake ``TaskData`` object for unit tests.
   /// - Returns: Initialized object with fake data.
-  static func fake() -> TaskData {
-    .init()
+  static func fake(
+    with model: TaskModel = .fake()
+  ) -> TaskData {
+    .init(
+      with: model
+    )
   }
 }
 

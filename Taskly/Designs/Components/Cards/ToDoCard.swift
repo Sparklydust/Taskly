@@ -25,7 +25,7 @@ struct ToDoCard: View {
           .animation(.easeInOut(duration: 0.3), value: task.isCompleted)
       }
 
-      Text(task.description)
+      Text(task.title)
         .font(.body)
         .foregroundStyle(.primary)
     }
@@ -38,7 +38,7 @@ struct ToDoCard: View {
         format: L10n.toDoCardTaskAccessToggleAction,
         arguments: [
           "\(task.isCompleted ? L10n.toDoCardTaskAccessCompleted : L10n.toDoCardTaskAccessUncompleted)",
-          task.description
+          task.title
         ]
       )
     )

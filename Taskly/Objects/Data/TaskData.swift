@@ -8,8 +8,20 @@ import SwiftData
 /// Task data from the user created tasks to be saved in persistent store.
 @Model final class TaskData {
 
-  init() {
-    // Intentionally empty
+  /// A unique identifier for the task.
+  @Attribute(.unique) var taskID: UUID
+  /// The task title.
+  var title: String
+  /// Indicates whether the task is completed.
+  var isCompleted: Bool
+  /// The timestamp of when the task was created.
+  var createdAt: Date
+
+  init(with model: TaskModel) {
+    taskID = model.id
+    title = model.title
+    isCompleted = model.isCompleted
+    createdAt = model.createdAt
   }
 }
 

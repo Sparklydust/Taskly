@@ -39,7 +39,7 @@ struct ToDoListView: View {
         isPresented: $vm.showAddTaskAlert
       ) {
         TaskTextFields(
-          task: $vm.task,
+          title: $vm.newTaskTitle,
           onAdd: { withAnimation { vm.addTask() }},
           onCancel: { vm.cancelAddingTask() }
         )

@@ -8,7 +8,7 @@ import SwiftUI
 struct TaskTextFields: View {
 
   /// The task being created.
-  @Binding var task: String
+  @Binding var title: String
   /// The action to perform when the user create the task.
   let onAdd: () -> Void
   /// The action to perform when the user cancel the task.
@@ -16,12 +16,12 @@ struct TaskTextFields: View {
 
   var body: some View {
     VStack {
-      TextField(L10n.taskAddTextFieldPlaceholder, text: $task)
+      TextField(L10n.taskAddTextFieldPlaceholder, text: $title)
         .autocorrectionDisabled()
 
       HStack {
         Button(L10n.buttonAddTask, action: onAdd)
-          .disabled(task.isEmpty)
+          .disabled(title.isEmpty)
 
         Button(L10n.buttonCancelTask, role: .cancel, action: onCancel)
       }
@@ -30,9 +30,9 @@ struct TaskTextFields: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-  @Previewable @State var task = String()
+  @Previewable @State var title = String()
   TaskTextFields(
-    task: $task,
+    title: $title,
     onAdd: {},
     onCancel: {}
   )

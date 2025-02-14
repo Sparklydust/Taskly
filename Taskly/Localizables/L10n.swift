@@ -18,6 +18,11 @@ enum L10n {
     comment: "The title populated on the button used to cancel a new task."
   )
 
+  static let taskAddTextFieldPlaceholder = String(
+    localized: "taskAddTextFieldPlaceholder",
+    comment: "Placeholder within the text field that let user enter a new task for their to-do list."
+  )
+
   static let taskUnavailableDescription = String(
     localized: "taskUnavailableDescription",
     comment: "Description populated when there is no task available within the to-do list."
@@ -36,5 +41,20 @@ enum L10n {
   static let toDoListNavBarTitle = String(
     localized: "toDoListNavBarTitle",
     comment: "The navigation bar title for the to-do list view."
+  )
+
+  public static let toDoCardTaskAccessCompleted = String(
+    localized: "toDoCardTaskCompleted",
+    comment: "Accessibility label to indicate that a task is completed."
+  )
+
+  public static let toDoCardTaskAccessToggleAction = String(
+    localized: "toDoCardTaskAccessToggleAction",
+    comment: "Accessibility label to indicate that a task can be toggled for completion on a tap."
+  )
+
+  public static let toDoCardTaskAccessUncompleted = String(
+    localized: "toDoCardTaskUncompleted",
+    comment: "Accessibility label to indicate that a task is uncompleted."
   )
 }

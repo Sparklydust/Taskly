@@ -16,7 +16,7 @@ struct TaskTextFields: View {
 
   var body: some View {
     VStack {
-      TextField(String(), text: $task)
+      TextField(L10n.taskAddTextFieldPlaceholder, text: $task)
         .autocorrectionDisabled()
 
       HStack {

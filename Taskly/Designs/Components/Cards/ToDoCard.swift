@@ -21,7 +21,7 @@ struct ToDoCard: View {
           .font(.title2)
           .foregroundStyle(task.isCompleted ? .accent : .secondary)
           .symbolEffect(.bounce, value: task.isCompleted)
-          .rotationEffect(.degrees(task.isCompleted ? 0 : 360))
+          .rotationEffect(.degrees(task.isCompleted ? 360 : 0))
           .animation(.easeInOut(duration: 0.3), value: task.isCompleted)
       }
 
@@ -31,6 +31,17 @@ struct ToDoCard: View {
     }
     .padding(.horizontal, 4)
     .padding(.vertical, 8)
+    .accessibilityElement(children: .ignore)
+    .accessibilityAddTraits(.isButton)
+    .accessibilityLabel(
+      String(
+        format: L10n.toDoCardTaskAccessToggleAction,
+        arguments: [
+          "\(task.isCompleted ? L10n.toDoCardTaskAccessCompleted : L10n.toDoCardTaskAccessUncompleted)",
+          task.description
+        ]
+      )
+    )
   }
 }
 

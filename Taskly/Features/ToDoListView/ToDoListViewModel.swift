@@ -38,12 +38,23 @@ extension ToDoListViewModel {
   }
 }
 
+// MARK: - Delete Task
+extension ToDoListViewModel {
+
+  /// Delete task at specified index.
+  /// - Parameter index: The index of the task to delete.
+  func deleteTask(at index: IndexSet) {
+    allTasks.remove(atOffsets: index)
+  }
+}
+
 // MARK: - Task Completion
 extension ToDoListViewModel {
 
-  /// Toggles the completion status of a task at the given index.
-  /// - Parameter index: The index of the task to toggle the completion for.
-  func toggleTaskCompletion(at index: Int) {
+  /// Toggles the completion status of a given task.
+  /// - Parameter task: The task to toggle the completion for.
+  func toggleCompletion(on task: TaskModel) {
+    guard let index = allTasks.firstIndex(of: task) else { return }
     allTasks[index].isCompleted.toggle()
     sortTasks()
   }

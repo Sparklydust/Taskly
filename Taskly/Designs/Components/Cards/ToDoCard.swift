@@ -8,7 +8,7 @@ import SwiftUI
 struct ToDoCard: View {
 
   /// The task to populate on the card.
-  @Binding var task: TaskModel
+  var task: TaskModel
   /// The action to toggle the completion or not of the task.
   let action: () -> Void
 
@@ -37,7 +37,7 @@ struct ToDoCard: View {
 #Preview(traits: .sizeThatFitsLayout) {
   @Previewable @State var task: TaskModel = .fake()
   ToDoCard(
-    task: $task,
+    task: task,
     action: { task.isCompleted.toggle() }
   )
 }

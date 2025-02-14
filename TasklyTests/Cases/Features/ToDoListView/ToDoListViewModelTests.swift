@@ -2,6 +2,7 @@
 // Copyright © 2025 Roland Lariotte. Under the MIT License.
 //
 
+import Foundation
 import Testing
 @testable import Taskly
 
@@ -100,11 +101,23 @@ import Testing
     #expect(result == expected, "`allTasks` must contain \(expected) tasks.")
   }
 
+  // MARK: - Delete Task
+  @Test func deleteTask_userDeleteTaskAtIndex_taskAtSpecifiedIndexIsDeleted() {
+    let expected = "Task To Delete"
+    let tasksFake: [TaskModel] = [.fake(), .fake(description: expected), .fake(description: "Go for a run.")]
+    sut.allTasks.append(contentsOf: tasksFake)
+
+    sut.deleteTask(at: IndexSet(integer: 1))
+    let result = sut.allTasks.contains(where: { $0.description == expected })
+
+    #expect(result == false, "Task at specified index must be deleted when calling `deleteTask(at:).")
+  }
+
   // MARK: Task Completion
   @Test func taskCompletion_userMarkTaskAsComplete_taskValueIsCompletedIsEqualToTrue() {
     sut.allTasks.append(.fake())
 
-    sut.toggleTaskCompletion(at: 0)
+    sut.toggleCompletion(on: sut.allTasks[0])
     let result = sut.allTasks[0].isCompleted
 
     #expect(result == true, "task that is completed must be marked as `true` within the `allTasks` array.")
@@ -114,7 +127,7 @@ import Testing
     sut.allTasks.append(.fake())
     sut.allTasks[0].isCompleted = true
 
-    sut.toggleTaskCompletion(at: 0)
+    sut.toggleCompletion(on: sut.allTasks[0])
     let result = sut.allTasks[0].isCompleted
 
     #expect(result == false, "task that is uncompleted must be marked as `false` within the `allTasks` array.")
@@ -127,7 +140,7 @@ import Testing
     sut.allTasks.append(contentsOf: [taskFake2, taskFake1])
     let expected = taskFake2.id
 
-    sut.toggleTaskCompletion(at: 0)
+    sut.toggleCompletion(on: sut.allTasks[0])
     let result = try #require(sut.allTasks.last?.id)
 
     #expect(result == expected, "Completed task must go at the bottom the list of `allTasks` as `\(expected)`.")
@@ -141,7 +154,7 @@ import Testing
     sut.allTasks.append(contentsOf: [taskFake2, taskFake1])
     let expected = taskFake1.id
 
-    sut.toggleTaskCompletion(at: 1)
+    sut.toggleCompletion(on: sut.allTasks[1])
     let result = try #require(sut.allTasks.first?.id)
 
     #expect(result == expected, "Uncompleted task must go at the top of the list of `allTasks` as `\(expected)`.")

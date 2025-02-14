@@ -15,11 +15,16 @@ struct ToDoListView: View {
         if vm.allTasks.isEmpty {
           TaskUnavailableView()
         } else {
-          List(vm.allTasks.indices, id: \.self) { index in
-            ToDoCard(
-              task: $vm.allTasks[index],
-              action: { vm.toggleTaskCompletion(at: index) }
-            )
+          List {
+            ForEach(vm.allTasks, id: \.id) { task in
+              ToDoCard(
+                task: task,
+                action: { vm.toggleCompletion(on: task) }
+              )
+            }
+            .onDelete { index in
+              withAnimation { vm.deleteTask(at: index) }
+            }
           }
         }
       }

@@ -36,3 +36,13 @@ extension ToDoListViewModel {
     task = String()
   }
 }
+
+// MARK: - Task Completion
+extension ToDoListViewModel {
+
+  /// Toggles the completion status of a task at the given index.
+  /// - Parameter index: The index of the task to toggle the completion for.
+  func toggleTaskCompletion(at index: Int) {
+    allTasks[index].isCompleted.toggle()
+  }
+}

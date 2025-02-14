@@ -59,16 +59,16 @@ import Testing
 
   @Test func addTask_userCancelAddingTask_taskValueIsEqualToEmptyString() {
     sut.task = "Fake value"
-    
+
     sut.cancelAddingTask()
     let result = sut.task.isEmpty
-    
+
     #expect(result == true, "`task` should be empty when `cancelAddingTask()` is called.")
   }
 
   @Test func addTask_userAddTask_taskValueIsEqualToEmpty() {
     sut.task = "Fake value"
-    
+
     sut.addTask()
     let result = sut.task.isEmpty
 
@@ -98,5 +98,25 @@ import Testing
     let result = sut.allTasks.count
 
     #expect(result == expected, "`allTasks` must contain \(expected) tasks.")
+  }
+
+  // MARK: Task Completion
+  @Test func taskCompletion_userMarkTaskAsComplete_taskValueIsCompletedIsEqualToTrue() {
+    sut.allTasks.append(.fake())
+
+    sut.toggleTaskCompletion(at: 0)
+    let result = sut.allTasks[0].isCompleted
+
+    #expect(result == true, "task that is completed must be marked as `true` within the `allTasks` array.")
+  }
+
+  @Test func taskCompletion_userMarkTaskAsUncomplete_taskValueIsCompletedIsEqualToFalse() {
+    sut.allTasks.append(.fake())
+    sut.allTasks[0].isCompleted = true
+
+    sut.toggleTaskCompletion(at: 0)
+    let result = sut.allTasks[0].isCompleted
+
+    #expect(result == false, "task that is uncompleted must be marked as `false` within the `allTasks` array.")
   }
 }

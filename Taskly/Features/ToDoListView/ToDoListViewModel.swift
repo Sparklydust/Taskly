@@ -33,6 +33,7 @@ extension ToDoListViewModel {
   func addTask() {
     let newTask = TaskModel(description: task)
     allTasks.append(newTask)
+    sortTasks()
     task = String()
   }
 }
@@ -44,5 +45,18 @@ extension ToDoListViewModel {
   /// - Parameter index: The index of the task to toggle the completion for.
   func toggleTaskCompletion(at index: Int) {
     allTasks[index].isCompleted.toggle()
+    sortTasks()
+  }
+}
+
+// MARK: - Sorted Tasks
+extension ToDoListViewModel {
+
+  /// Sorts tasks so that uncompleted tasks appear at the top.
+  private func sortTasks() {
+    allTasks.sort {
+      guard $0.isCompleted == $1.isCompleted else { return !$0.isCompleted }
+      return $0.createdAt > $1.createdAt
+    }
   }
 }

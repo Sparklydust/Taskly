@@ -119,4 +119,44 @@ import Testing
 
     #expect(result == false, "task that is uncompleted must be marked as `false` within the `allTasks` array.")
   }
+
+  // MARK: - Sorted Tasks
+  @Test func sortedTasks_userCompleteATask_completedTaskIsAtTheStackBottom() throws {
+    let taskFake1: TaskModel = .fake(description: "Fake Task 1")
+    let taskFake2: TaskModel = .fake(description: "Fake Task 2")
+    sut.allTasks.append(contentsOf: [taskFake2, taskFake1])
+    let expected = taskFake2.id
+
+    sut.toggleTaskCompletion(at: 0)
+    let result = try #require(sut.allTasks.last?.id)
+
+    #expect(result == expected, "Completed task must go at the bottom the list of `allTasks` as `\(expected)`.")
+  }
+
+  @Test func sortedTasks_userUncompletedATask_uncompletedTaskIsAtTheStackTop() throws {
+    var taskFake1: TaskModel = .fake(description: "Fake Task 1")
+    var taskFake2: TaskModel = .fake(description: "Fake Task 2")
+    taskFake1.isCompleted = true
+    taskFake2.isCompleted = true
+    sut.allTasks.append(contentsOf: [taskFake2, taskFake1])
+    let expected = taskFake1.id
+
+    sut.toggleTaskCompletion(at: 1)
+    let result = try #require(sut.allTasks.first?.id)
+
+    #expect(result == expected, "Uncompleted task must go at the top of the list of `allTasks` as `\(expected)`.")
+  }
+
+  @Test func sortedTasks_userAddANewTask_newUncompletedTaskIsAtTheStackTop() throws {
+    let taskFake1: TaskModel = .fake(description: "Fake Task 1")
+    sut.allTasks.append(taskFake1)
+    let expected = "Added Task"
+
+    sut.task = expected
+    sut.addTask()
+
+    let result = try #require(sut.allTasks.first?.description)
+
+    #expect(result == expected, "Uncompleted task must go at the top of the list of `allTasks`.")
+  }
 }

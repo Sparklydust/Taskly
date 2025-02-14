@@ -10,5 +10,28 @@ import Testing
 /// By adding the ``SharedTestingBase`` as an extension to a test class, we can avoid duplications
 /// and retrieve in one place all shared tests setups, dummies, mocks and spies.
 class SharedTestingBase: @unchecked Sendable {
-  // intentionally empty
+
+  init() async {
+    await setupData()
+  }
+
+  deinit {
+    tearDownData()
+  }
+}
+
+// MARK: - Data
+extension SharedTestingBase {
+
+  /// Setup SwiftData object for unit tests to use inMemory storage only.
+  @MainActor private func setupData() {
+    TaskData.internalFakeContext = TaskData.fakeContext()
+  }
+
+  /// Remove SwiftData object from inMemory to clean tests.
+  private func tearDownData() {
+    Task { @MainActor in
+      TaskData.internalFakeContext = .none
+    }
+  }
 }

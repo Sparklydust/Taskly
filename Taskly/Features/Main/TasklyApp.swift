@@ -2,6 +2,7 @@
 // Copyright © 2025 Roland Lariotte. Under the MIT License.
 //
 
+import SwiftData
 import SwiftUI
 
 /// Production code entry point to run the Taskly application.
@@ -12,6 +13,7 @@ struct TasklyApp: App {
   var body: some Scene {
     WindowGroup {
       ToDoListView()
+        .modelContainer(ModelContainer.shared)
         .onAppear { instantiateColorOnAlerts() }
     }
   }

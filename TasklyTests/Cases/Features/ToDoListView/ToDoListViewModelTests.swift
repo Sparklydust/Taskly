@@ -6,11 +6,13 @@ import Foundation
 import Testing
 @testable import Taskly
 
-@MainActor final class ToDoListViewModelTests {
+@Suite(.serialized)
+@MainActor class ToDoListViewModelTests: SharedTestingBase, @unchecked Sendable {
 
   var sut: ToDoListViewModel!
 
-  init() {
+  override init() async {
+    await super.init()
     sut = ToDoListViewModel()
   }
 

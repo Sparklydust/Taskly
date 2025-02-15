@@ -28,6 +28,7 @@ struct ToDoListView: View {
           }
         }
       }
+      .onAppear { vm.getTasksFromDeviceMemory() }
       .navigationTitle(L10n.toDoListNavBarTitle)
       .toolbar {
         ToolbarItem(placement: .primaryAction) {
@@ -50,4 +51,5 @@ struct ToDoListView: View {
 
 #Preview {
   ToDoListView()
+    .modelContainer(try! TaskData.fakeContainer())
 }

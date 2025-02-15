@@ -22,6 +22,7 @@ struct TaskTextFields: View {
       HStack {
         Button(L10n.buttonAddTask, action: onAdd)
           .disabled(title.isEmpty)
+          .accessibilityIdentifier(.addNewTaskButton)
 
         Button(L10n.buttonCancelTask, role: .cancel, action: onCancel)
       }

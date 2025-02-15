@@ -13,6 +13,8 @@ struct TaskUnavailableView: View {
       systemImage: "plus.circle.dashed",
       description: Text(L10n.taskUnavailableDescription)
     )
+    .ignoresSafeArea(.all)
+    .ignoresSafeArea(.keyboard)
   }
 }
 

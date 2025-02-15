@@ -16,6 +16,7 @@ struct AddTaskButton: View {
         .font(.title2)
         .foregroundStyle(.accent)
     }
+    .accessibilityIdentifier(.createANewTaskButton)
   }
 }
 

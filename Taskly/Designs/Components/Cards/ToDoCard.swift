@@ -42,6 +42,7 @@ struct ToDoCard: View {
         ]
       )
     )
+    .accessibilityIdentifier(.toDoCard)
   }
 }
 

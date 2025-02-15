@@ -1,0 +1,26 @@
+{
+  "configurations" : [
+    {
+      "id" : "7AA67265-0EFA-489F-8C74-306953202DA1",
+      "name" : "English - France",
+      "options" : {
+        "language" : "en",
+        "region" : "FR",
+        "testExecutionOrdering" : "random"
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Taskly.xcodeproj",
+        "identifier" : "2AAB0EAD2D60DDBA0020CE8C",
+        "name" : "TasklyUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

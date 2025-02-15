@@ -33,6 +33,9 @@
             reference = "container:TasklyTestPlans/Develop.xctestplan"
             default = "YES">
          </TestPlanReference>
+         <TestPlanReference
+            reference = "container:TasklyTestPlans/Interactions.xctestplan">
+         </TestPlanReference>
       </TestPlans>
       <Testables>
          <TestableReference
@@ -51,7 +54,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2A6A57692D5CB45A00D5AA32"
+               BlueprintIdentifier = "2AAB0EAD2D60DDBA0020CE8C"
                BuildableName = "TasklyUITests.xctest"
                BlueprintName = "TasklyUITests"
                ReferencedContainer = "container:Taskly.xcodeproj">
